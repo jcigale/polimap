@@ -1,16 +1,28 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
 
-const config = {
-  entry: path.join(__dirname, './public/javascripts/index.js'),
+module.exports = {
+  context: __dirname,
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, './public')
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.ProgressPlugin()
-  ],
-  devtool: 'source-map'
-}
-
-module.exports = config
+//   module: {
+//     rules: [
+//       {
+//         test: /\.jsx?$/,
+//         exclude: /(node_modules)/,
+//         use: {
+//           loader: 'babel-loader',
+//           options: {
+//             presets: ['@babel/env', '@babel/react']
+//           }
+//         },
+//       }
+//     ]
+//   },
+  devtool: 'source-map',
+  resolve: {
+    extensions: [".js", ".jsx", "*"]
+  }
+};

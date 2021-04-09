@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script type="text/javascript" src="./bundle.js"></script>
-    <link rel="stylesheet" href="../stately/assets/css/stately.css">
-  </head>
-  <body>
-    <main id='main'>
+const elecResults = require('./elec_arr');
+
+module.exports = {
+    render(){
+        debugger
+        console.log(elecResults);
+        let map = document.createElement('div');
+        map.className = 'map'
+        map.innerHTML = `
         <ul class="stately"> 
             <li data-state="al" class="al">A</li>
             <li data-state="ak" class="ak">B</li>
@@ -61,6 +60,7 @@
             <li data-state="wi" class="wi">x</li>
             <li data-state="wy" class="wy">y</li>
         </ul>
-    </main>
-  </body>
-</html>
+        `
+        return map; 
+    },
+}
