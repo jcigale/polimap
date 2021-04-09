@@ -45,11 +45,12 @@ exports.elecResults = elecResults;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const elecResults = __webpack_require__(/*! ./elec_arr */ "./src/elec_arr.js");
-
+const updateMap = () => {
+    console.log('update map')
+}
 module.exports = {
     render(){
-        debugger
-        console.log(elecResults);
+        updateMap();
         let map = document.createElement('div');
         map.className = 'map'
         map.innerHTML = `
