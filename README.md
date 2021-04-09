@@ -8,7 +8,7 @@
 > * Press play to see the map transition the past to the current date
 > * Click on a state to see the exact percentage breakdown
 ## Technologies, Libraries, and APIs
-> * JQuery plugin for map (https://github.com/NewSignature/us-map)
+> * Map of states (https://github.com/mobomo/stately/)
 > * Vanilla JS, HTML, and CSS
 > * Google Civic Information API
 ## Wireframe
