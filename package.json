@@ -8,7 +8,11 @@
     "start": "webpack --watch --mode=development",
     "build": "webpack"
   },
-  "browser": { "fs": false, "path": false, "os": false},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jcigale/polimap.git"
@@ -23,8 +27,11 @@
   "dependencies": {
     "babel": "^6.23.0",
     "fs": "0.0.1-security",
-    "loader": "^2.1.1",
+    "loader": "csv",
     "webpack": "^5.31.1",
     "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "csv-loader": "^3.0.3"
   }
 }
