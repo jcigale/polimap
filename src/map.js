@@ -5,6 +5,13 @@ class Map {
         this.year = year;
     }
     
+    getYear() {
+        this.year = document.getElementById('year').value
+    }
+
+    updateMap() {
+        
+    }
     
     
     render(){
@@ -12,7 +19,7 @@ class Map {
         nav.className = 'nav'
         nav.innerHTML = `
         <button>Description</button>
-            <select name='years'>
+            <select id='years' onChange=${getYear()}>
                 <option value="1789">1789</option>
                 <option value="1792">1792</option>
                 <option value="1796">1796</option>
@@ -138,3 +145,5 @@ class Map {
         return total; 
     }
 }
+
+module.exports = Map;
