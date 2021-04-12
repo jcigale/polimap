@@ -1,10 +1,7 @@
-const elecResults = require('./elec_arr');
-const updateMap = () => {
-    console.log('update map')
-}
+const elecResults = require('./elec_obj');
+
 module.exports = {
     render(){
-        updateMap();
         let map = document.createElement('div');
         map.className = 'map'
         map.innerHTML = `
