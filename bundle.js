@@ -2449,7 +2449,8 @@ function updateMap() {
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State])
-            state.color = partyColor[sortedByYear[year][i].Party]
+            debugger
+            state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
     }
     
