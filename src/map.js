@@ -1,25 +1,23 @@
-const elecResults = require('./elec_obj.js');
+import { byYear } from './data_util';
 
-module.exports = {
-    constructor(year="") {
-        this.year = year;
-    },
+export function constructor(year = "") {
+    this.year = year;
+}
+export function getYear() {
+    let banana = byYear();
+    debugger
+    if (document.getElementById('year')) {
+        this.year = document.getElementById('year').value;
+    }
+}
+export function updateMap() {
     
-    getYear() {
-        
-        console.log(elecResults)
-        if (document.getElementById('year')) {
-        this.year = document.getElementById('year').value }
-    },
+}
 
-    updateMap() {
-        
-    },
-
-    render() {
-        let map = document.createElement('div');
-        map.className = 'map'
-        map.innerHTML = `
+export function render() {
+    let map = document.createElement('div');
+    map.className = 'map';
+    map.innerHTML = `
         <button>Description</button>
                 <select id='years' onChange=${this.getYear()}>
                     <option value="1789">1789</option>
@@ -134,9 +132,8 @@ module.exports = {
             <li data-state="wi" class="wi">x</li>
             <li data-state="wy" class="wy">y</li>
         </ul>
-        `
-        return map
-    },
+        `;
+    return map;
 }
 
 // module.exports = Map;

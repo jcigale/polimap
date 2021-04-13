@@ -4,23 +4,19 @@ module.exports = {
   context: __dirname,
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: path.resolve(__dirname),
     filename: 'bundle.js'
   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.jsx?$/,
-//         exclude: /(node_modules)/,
-//         use: {
-//           loader: 'babel-loader',
-//           options: {
-//             presets: ['@babel/env', '@babel/react']
-//           }
-//         },
-//       }
-//     ]
-//   },
+  module: {
+    rules: [
+      {
+        test: /\.csv$/,
+        use: {
+          loader: 'csv-loader',
+        },
+      }
+    ]
+  },
   devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]

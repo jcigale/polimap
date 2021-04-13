@@ -27,7 +27,7 @@
   "dependencies": {
     "babel": "^6.23.0",
     "fs": "0.0.1-security",
-    "loader": "csv",
+    "loader": "2.1.1",
     "webpack": "^5.31.1",
     "webpack-cli": "^4.6.0"
   },
