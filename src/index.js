@@ -10,4 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     router = new Router(main, routes);
     router.start();
     window.location.hash = "#map"
+    const yearSelect = document.getElementById('years');
+    yearSelect.addEventListener('change', Map.updateMap());
+
 })
+

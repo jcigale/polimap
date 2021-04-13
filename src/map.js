@@ -1,17 +1,23 @@
-import { byYear } from './data_util';
+import { byYear,  parties, stateAbrv } from './data_util';
 
-export function constructor(year = "") {
-    this.year = year;
+let sortedByYear = byYear();
+let abrv = stateAbrv;
+let partyColor = parties;
+
+function getYear() {
+    return document.getElementById('years').value;
 }
-export function getYear() {
-    let banana = byYear();
-    //debugger
-    if (document.getElementById('year')) {
-        this.year = document.getElementById('year').value;
-    }
-}
+
+
 export function updateMap() {
-
+    let year = getYear();
+    if (year) {
+        for (let i=0; i<sortedByYear[year].length; i++) {
+            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State])
+            state.color = partyColor[sortedByYear[year][i].Party]
+            }
+    }
+    
 }
 
 export function render() {
@@ -19,7 +25,7 @@ export function render() {
     map.className = 'map';
     map.innerHTML = `
         <button>Description</button>
-                <select id='years' onChange=${this.getYear()}>
+                <select id='years'>
                     <option value="1789">1789</option>
                     <option value="1792">1792</option>
                     <option value="1796">1796</option>

@@ -29,6 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
 const byYear = () => {
     let data = _elec_obj_js__WEBPACK_IMPORTED_MODULE_0__.elecResults
     let hash = {};
@@ -2428,26 +2429,30 @@ const elecResults = csvJSON(`Year,State,total,party.1,%,EV,party.2,%,EV,party.3,
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "constructor": () => (/* binding */ constructor),
-/* harmony export */   "getYear": () => (/* binding */ getYear),
 /* harmony export */   "updateMap": () => (/* binding */ updateMap),
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var _data_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data_util */ "./src/data_util.js");
 
 
-function constructor(year = "") {
-    this.year = year;
-}
-function getYear() {
-    let banana = (0,_data_util__WEBPACK_IMPORTED_MODULE_0__.byYear)();
-    //debugger
-    if (document.getElementById('year')) {
-        this.year = document.getElementById('year').value;
-    }
-}
-function updateMap() {
+let sortedByYear = (0,_data_util__WEBPACK_IMPORTED_MODULE_0__.byYear)();
+let abrv = _data_util__WEBPACK_IMPORTED_MODULE_0__.stateAbrv;
+let partyColor = _data_util__WEBPACK_IMPORTED_MODULE_0__.parties;
 
+function getYear() {
+    return document.getElementById('years').value;
+}
+
+
+function updateMap() {
+    let year = getYear();
+    if (year) {
+        for (let i=0; i<sortedByYear[year].length; i++) {
+            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State])
+            state.color = partyColor[sortedByYear[year][i].Party]
+            }
+    }
+    
 }
 
 function render() {
@@ -2455,7 +2460,7 @@ function render() {
     map.className = 'map';
     map.innerHTML = `
         <button>Description</button>
-                <select id='years' onChange=${this.getYear()}>
+                <select id='years'>
                     <option value="1789">1789</option>
                     <option value="1792">1792</option>
                     <option value="1796">1796</option>
@@ -2701,7 +2706,12 @@ document.addEventListener('DOMContentLoaded', () => {
     router = new Router(main, routes);
     router.start();
     window.location.hash = "#map"
+    const yearSelect = document.getElementById('years');
+    yearSelect.addEventListener('change', Map.updateMap());
+
 })
+
+
 })();
 
 /******/ })()
