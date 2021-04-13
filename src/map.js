@@ -1,32 +1,39 @@
-import { byYear,  parties, stateAbrv } from './data_util';
+import { byYear,  parties, stateAbrv, states } from './data_util';
 
 let sortedByYear = byYear();
 let abrv = stateAbrv;
 let partyColor = parties;
 
 function getYear() {
-    return document.getElementById('years').value;
+    let year = document.getElementById('years')
+    if (!year || year.value === 'none') return
+    return year.value;
+}
+
+function resetMap() {
+
 }
 
 
 export function updateMap() {
+    console.log(sortedByYear);
     let year = getYear();
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
-            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State])
-            debugger
+            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
+            //debugger
             state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
     }
-    
 }
 
 export function render() {
     let map = document.createElement('div');
     map.className = 'map';
     map.innerHTML = `
-        <button>Description</button>
-                <select id='years'>
+        <button>Description</button>  
+                <select id='years' type='submit'>
+                    <option value="none">Select Year</option>
                     <option value="1789">1789</option>
                     <option value="1792">1792</option>
                     <option value="1796">1796</option>
@@ -139,7 +146,7 @@ export function render() {
             <li data-state="wi" class="wi">x</li>
             <li data-state="wy" class="wy">y</li>
         </ul>
-        `;
+        `;   
     return map;
 }
 

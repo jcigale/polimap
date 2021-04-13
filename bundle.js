@@ -60,6 +60,7 @@ const stateAbrv = {
     'Colorado' : 'co',
     'Connecticut' : 'ct',
     'Delaware' : 'de',
+    'Dist. of Col.' : 'dc',
     'Florida' : 'fl',
     'Georgia' : 'ga', 
     'Hawaii' : 'hi', 
@@ -89,7 +90,7 @@ const stateAbrv = {
     'Ohio' : 'oh', 
     'Oklahoma' : 'ok', 
     'Oregon' : 'or', 
-    'Pennsylvania' : 'pe', 
+    'Pennsylvania' : 'pa', 
     'Rhode Island' : 'ri', 
     'South Carolina' : 'sc', 
     'South Dakota' : 'sd', 
@@ -97,6 +98,7 @@ const stateAbrv = {
     'Texas' : 'tx', 
     'Utah' : 'ut', 
     'Vermont' : 'vt', 
+    'Virginia' : 'va',
     'Washington' : 'wa', 
     'West Virginia' : 'wv', 
     'Wisconsin' : 'wi', 
@@ -105,7 +107,7 @@ const stateAbrv = {
 
 const parties = {
     'Republican': '#FF0000',
-    'Democrat': '#0015BC',
+    'Democratic': '#0015BC',
     'Other' : '#FED105',
     'Whig' : '#4B0082',
     'Democratic-Republican' : '#87CEFA',
@@ -2440,28 +2442,35 @@ let abrv = _data_util__WEBPACK_IMPORTED_MODULE_0__.stateAbrv;
 let partyColor = _data_util__WEBPACK_IMPORTED_MODULE_0__.parties;
 
 function getYear() {
-    return document.getElementById('years').value;
+    let year = document.getElementById('years')
+    if (!year || year.value === 'none') return
+    return year.value;
+}
+
+function resetMap() {
+
 }
 
 
 function updateMap() {
+    console.log(sortedByYear);
     let year = getYear();
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
-            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State])
-            debugger
+            let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
+            //debugger
             state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
     }
-    
 }
 
 function render() {
     let map = document.createElement('div');
     map.className = 'map';
     map.innerHTML = `
-        <button>Description</button>
-                <select id='years'>
+        <button>Description</button>  
+                <select id='years' type='submit'>
+                    <option value="none">Select Year</option>
                     <option value="1789">1789</option>
                     <option value="1792">1792</option>
                     <option value="1796">1796</option>
@@ -2574,7 +2583,7 @@ function render() {
             <li data-state="wi" class="wi">x</li>
             <li data-state="wy" class="wy">y</li>
         </ul>
-        `;
+        `;   
     return map;
 }
 
@@ -2708,9 +2717,12 @@ document.addEventListener('DOMContentLoaded', () => {
     router.start();
     window.location.hash = "#map"
     const yearSelect = document.getElementById('years');
-    yearSelect.addEventListener('change', Map.updateMap());
-
+    yearSelect.addEventListener('change', (e) => {
+        Map.updateMap()
+    });
 })
+
+
 
 
 })();

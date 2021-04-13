@@ -32,6 +32,7 @@ export const stateAbrv = {
     'Colorado' : 'co',
     'Connecticut' : 'ct',
     'Delaware' : 'de',
+    'Dist. of Col.' : 'dc',
     'Florida' : 'fl',
     'Georgia' : 'ga', 
     'Hawaii' : 'hi', 
@@ -61,7 +62,7 @@ export const stateAbrv = {
     'Ohio' : 'oh', 
     'Oklahoma' : 'ok', 
     'Oregon' : 'or', 
-    'Pennsylvania' : 'pe', 
+    'Pennsylvania' : 'pa', 
     'Rhode Island' : 'ri', 
     'South Carolina' : 'sc', 
     'South Dakota' : 'sd', 
@@ -69,6 +70,7 @@ export const stateAbrv = {
     'Texas' : 'tx', 
     'Utah' : 'ut', 
     'Vermont' : 'vt', 
+    'Virginia' : 'va',
     'Washington' : 'wa', 
     'West Virginia' : 'wv', 
     'Wisconsin' : 'wi', 
@@ -77,7 +79,7 @@ export const stateAbrv = {
 
 export const parties = {
     'Republican': '#FF0000',
-    'Democrat': '#0015BC',
+    'Democratic': '#0015BC',
     'Other' : '#FED105',
     'Whig' : '#4B0082',
     'Democratic-Republican' : '#87CEFA',
