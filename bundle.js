@@ -2441,13 +2441,13 @@ function constructor(year = "") {
 }
 function getYear() {
     let banana = (0,_data_util__WEBPACK_IMPORTED_MODULE_0__.byYear)();
-    debugger
+    //debugger
     if (document.getElementById('year')) {
         this.year = document.getElementById('year').value;
     }
 }
 function updateMap() {
-    
+
 }
 
 function render() {

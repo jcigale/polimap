@@ -5,13 +5,13 @@ export function constructor(year = "") {
 }
 export function getYear() {
     let banana = byYear();
-    debugger
+    //debugger
     if (document.getElementById('year')) {
         this.year = document.getElementById('year').value;
     }
 }
 export function updateMap() {
-    
+
 }
 
 export function render() {
