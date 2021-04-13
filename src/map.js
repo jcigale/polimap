@@ -11,12 +11,15 @@ function getYear() {
 }
 
 function resetMap() {
-
+    for (let i=0; i<states.length; i++) {
+        let state = document.getElementsByClassName(abrv[states[i]]);
+        state[0].style.color = '#b0b0b0'
+    }
 }
 
 
 export function updateMap() {
-    console.log(sortedByYear);
+    resetMap();
     let year = getYear();
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {

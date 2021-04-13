@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elec_obj_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elec_obj.js */ "./src/elec_obj.js");
 
 
-const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Dist. of Col.', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 const byYear = () => {
     let data = _elec_obj_js__WEBPACK_IMPORTED_MODULE_0__.elecResults
@@ -2448,12 +2448,15 @@ function getYear() {
 }
 
 function resetMap() {
-
+    for (let i=0; i<_data_util__WEBPACK_IMPORTED_MODULE_0__.states.length; i++) {
+        let state = document.getElementsByClassName(abrv[_data_util__WEBPACK_IMPORTED_MODULE_0__.states[i]]);
+        state[0].style.color = '#b0b0b0'
+    }
 }
 
 
 function updateMap() {
-    console.log(sortedByYear);
+    resetMap();
     let year = getYear();
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
