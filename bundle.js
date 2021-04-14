@@ -2541,7 +2541,7 @@ function render() {
                 </select>
         <h1>${title()}<h1>
         <ul class="stately"> 
-            <li data-state="al" class="al">A</li>
+            <li data-state="al" class="al" id='state'>A</li>
             <li data-state="ak" class="ak">B</li>
             <li data-state="ar" class="ar">C</li>						
             <li data-state="az" class="az">D</li>
