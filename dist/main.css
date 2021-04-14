@@ -171,24 +171,50 @@ body {
 
 .dem {
     background:#0015BC;
+    margin-right: 10px;
 }
 
 .rep {
     background: #FF0000;
+    margin-right: 10px;
 }
 
 .whig {
     background: #4B0082;
+    margin-right: 10px;
 }
 
 .dem-rep {
     background: #87CEFA;
+    margin-right: 10px;
 }
 
 .fed {
     background: #DB7093;
+    margin-right: 10px;
 }
 
 .other {
     background: #FED106;
+    margin-right: 10px;
+}
+
+.description {
+    display: none;
+}
+
+.description.is-open {
+    position: absolute;
+    display: block;
+    background: #ffffff;
+    top: 100px;
+    left: 50%;
+    color: #333333;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    height: 400px;
+    width: 250px;
+    z-index: 3;
+
 }

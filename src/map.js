@@ -10,6 +10,13 @@ function getYear() {
     return year.value;
 }
 
+function title() {
+    if (getYear()) {
+        return `Presidential Election of ${getYear()}`
+    } else {
+        return 'Select a Year'
+    }
+}
 function resetMap() {
     for (let i=0; i<states.length; i++) {
         let state = document.getElementsByClassName(abrv[states[i]]);
@@ -34,7 +41,7 @@ export function render() {
     let map = document.createElement('div');
     map.className = 'map';
     map.innerHTML = `
-        <button>Description</button>  
+        <button class='info'>info</button>  
                 <select id='years' type='submit'>
                     <option value="none">Select Year</option>
                     <option value="1789">1789</option>
@@ -94,8 +101,8 @@ export function render() {
                     <option value="2008">2008</option>
                     <option value="2012">2012</option>
                     <option value="2016">2016</option>
-                    <option value="2020">2020</option>
                 </select>
+        <h1>${title()}<h1>
         <ul class="stately"> 
             <li data-state="al" class="al">A</li>
             <li data-state="ak" class="ak">B</li>
