@@ -5,20 +5,19 @@
     <title>Polimap</title>
     <script src="main.js"></script>
     <script type="text/javascript" src="./bundle.js"></script>
-    <!-- <script type='text/javascript'>
-      window.flag = "<%=image_url('https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg')%>"
-    </script> -->
     <link rel="stylesheet" type="text/css" href="./dist/main.css">
     <link rel="stylesheet" type="text/css" href="./stately/assets/css/stately.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Karantina&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Karantina&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8236c26cdc.js" crossorigin="anonymous"></script>
 
   </head>
   <body>
     <div class='top-bar'>
     <h1>Polimap</h1> 
     <nav>
-      <!-- <img src="'https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg'" alt="flag"> -->
+      <a href="https://www.linkedin.com/in/john-c-467b21ba/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/jcigale" target="_blank"><i class="fab fa-github"></i></a>
       <button class='info'>info</button>  
                 <select id='years' type='submit'>
                     <option value="none">Select Year</option>
@@ -90,7 +89,10 @@
       <button class='modal-close'>&#10060</button>
       <h1>Polimap Info</h1>
       <p>
-        Use drop down menu to select the year for which you would like to see presidential election results.
+        - Use drop down menu to select the year for which you would like to see presidential election results
+      </p>
+      <p>
+        - Press the space bar to transition forwards through the years
       </p>
     </div>
     <div class='screen'></div>

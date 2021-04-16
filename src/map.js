@@ -19,14 +19,27 @@ function title() {
 }
 
 export function handleSpace() {
-    let year = parseInt(getYear());
-    while (year < 2020) {
-        setInterval(() => {
-            //debugger
-            updateMap(year);
-            year += 4
-        }, 2000)
+    let year;
+    if (getYear() === '1789' || getYear() === 'Select Year' || getYear() === undefined) {
+        year = 1789
+    } else {
+        year = parseInt(getYear());
     }
+        let go = setInterval(() => {
+            debugger
+            updateMap(year);
+            if (year === 1789) {
+                year += 3
+            } else { year += 4}
+        }, 2000)
+
+        document.addEventListener('keyup', event => {
+            if (event.code === 'Space') {
+                clearInterval(go)
+            }
+        })
+
+  
 }
 
 function resetMap() {

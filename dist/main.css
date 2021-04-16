@@ -46,7 +46,6 @@ tt,
 var,
 b,
 u,
-i,
 center,
 dl,
 dt,
@@ -233,6 +232,7 @@ body {
 .description.is-open p {
     margin-left: 8px;
     margin-right: 8px;
+    margin-bottom: 10px;
 }
 
 .screen {
@@ -298,5 +298,15 @@ body {
 
 #years {
     height: 27px;
+}
+
+nav i {
+   padding:5px;
+   font-size: 24px;
+   color: black;
+}
+
+nav i:hover {
+    cursor: pointer;
 }
 
