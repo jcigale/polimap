@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     infoButton.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementsByClassName('description')[0].classList.add('is-open');
+        document.getElementsByClassName('screen')[0].classList.add('is-open');
     })
 
     const close = document.getElementsByClassName('modal-close')[0];
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         close.addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementsByClassName('description is-open')[0].classList.remove('is-open');
+            document.getElementsByClassName('screen is-open')[0].classList.remove('is-open');
         })
     }
 })

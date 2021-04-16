@@ -208,13 +208,82 @@ body {
     display: block;
     background: #ffffff;
     top: 100px;
-    left: 50%;
+    left: 40%;
+    right: 40%;
     color: #333333;
     border-radius: 3px;
     border: 1px solid lightgray;
     box-shadow: 3px 3px 5px 6px #ccc;
     height: 400px;
-    width: 250px;
+    width: 20%;
     z-index: 3;
 
 }
+
+.description.is-open h1 {
+    font-family: 'Karantina', cursive;
+    font-size: 28px;
+    text-align: center;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.is-open {
+    position: absolute;
+    display: block;
+    background: lightgray;
+    opacity: .5;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    right: 0px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.top-bar h1 {
+    color: red;
+    font-size: 40px;
+    font-weight: 500;
+    font-family: 'Karantina', cursive;
+    letter-spacing: 2px
+}
+
+.top-bar nav {
+    display: flex;
+    align-items: center;
+}
+
+.info {
+    border: none;
+    background: transparent;
+    color: red;
+    font-family: 'Karantina', cursive;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-right: 10px;
+}
+
+.info:hover {
+    border: 1px solid lightcoral;
+    background: lightcoral;
+    border-radius: 5px;
+    color: white;
+}
+
+#years {
+    height: 27px;
+}
+

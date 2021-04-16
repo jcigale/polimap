@@ -31,7 +31,6 @@ export function updateMap() {
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
-            //debugger
             state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
     }
@@ -41,68 +40,6 @@ export function render() {
     let map = document.createElement('div');
     map.className = 'map';
     map.innerHTML = `
-        <button class='info'>info</button>  
-                <select id='years' type='submit'>
-                    <option value="none">Select Year</option>
-                    <option value="1789">1789</option>
-                    <option value="1792">1792</option>
-                    <option value="1796">1796</option>
-                    <option value="1800">1800</option>
-                    <option value="1804">1804</option>
-                    <option value="1808">1808</option>
-                    <option value="1812">1812</option>
-                    <option value="1816">1816</option>
-                    <option value="1820">1820</option>
-                    <option value="1824">1824</option>
-                    <option value="1828">1828</option>
-                    <option value="1832">1832</option>
-                    <option value="1836">1836</option>
-                    <option value="1840">1840</option>
-                    <option value="1844">1844</option>
-                    <option value="1848">1848</option>
-                    <option value="1852">1852</option>
-                    <option value="1856">1856</option>
-                    <option value="1860">1864</option>
-                    <option value="1868">1868</option>
-                    <option value="1872">1872</option>
-                    <option value="1876">1876</option>
-                    <option value="1880">1880</option>
-                    <option value="1884">1884</option>
-                    <option value="1888">1888</option>
-                    <option value="1892">1892</option>
-                    <option value="1896">1896</option>
-                    <option value="1900">1900</option>
-                    <option value="1904">1904</option>
-                    <option value="1908">1908</option>
-                    <option value="1912">1912</option>
-                    <option value="1916">1916</option>
-                    <option value="1920">1920</option>
-                    <option value="1924">1924</option>
-                    <option value="1928">1928</option>
-                    <option value="1932">1932</option>
-                    <option value="1936">1936</option>
-                    <option value="1940">1940</option>
-                    <option value="1944">1944</option>
-                    <option value="1948">1948</option>
-                    <option value="1952">1952</option>
-                    <option value="1956">1956</option>
-                    <option value="1960">1960</option>
-                    <option value="1964">1964</option>
-                    <option value="1968">1968</option>
-                    <option value="1972">1972</option>
-                    <option value="1976">1976</option>
-                    <option value="1980">1980</option>
-                    <option value="1984">1984</option>
-                    <option value="1988">1988</option>
-                    <option value="1992">1992</option>
-                    <option value="1996">1996</option>
-                    <option value="2000">2000</option>
-                    <option value="2004">2004</option>
-                    <option value="2008">2008</option>
-                    <option value="2012">2012</option>
-                    <option value="2016">2016</option>
-                </select>
-        <h1>${title()}<h1>
         <ul class="stately"> 
             <li data-state="al" class="al" id='state'>A</li>
             <li data-state="ak" class="ak">B</li>
