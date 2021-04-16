@@ -145,6 +145,8 @@ body {
 }
 
 .key-box {
+    bottom: 15px;
+    position: absolute;
     border: 1px solid lightgray;
     border-radius: 3px;
     width: 22%;
