@@ -2431,6 +2431,8 @@ const elecResults = csvJSON(`Year,State,total,party.1,%,EV,party.2,%,EV,party.3,
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getYear": () => (/* binding */ getYear),
+/* harmony export */   "handleSpace": () => (/* binding */ handleSpace),
 /* harmony export */   "updateMap": () => (/* binding */ updateMap),
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
@@ -2454,6 +2456,18 @@ function title() {
         return 'Select a Year'
     }
 }
+
+function handleSpace() {
+    let year = parseInt(getYear());
+    while (year < 2020) {
+        setInterval(() => {
+            //debugger
+            updateMap(year);
+            year += 4
+        }, 2000)
+    }
+}
+
 function resetMap() {
     for (let i=0; i<_data_util__WEBPACK_IMPORTED_MODULE_0__.states.length; i++) {
         let state = document.getElementsByClassName(abrv[_data_util__WEBPACK_IMPORTED_MODULE_0__.states[i]]);
@@ -2462,9 +2476,9 @@ function resetMap() {
 }
 
 
-function updateMap() {
+function updateMap(getYear) {
     resetMap();
-    let year = getYear();
+    let year = getYear;
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
@@ -2666,11 +2680,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSelect = document.getElementById('years');
 
     yearSelect.addEventListener('change', (e) => {
-        Map.updateMap()
+        Map.updateMap(Map.getYear())
     });
 
     const infoButton = document.getElementsByClassName('info')[0];
-    //debugger
     infoButton.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementsByClassName('description')[0].classList.add('is-open');
@@ -2685,6 +2698,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementsByClassName('screen is-open')[0].classList.remove('is-open');
         })
     }
+
+    document.addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            Map.handleSpace();
+        }
+    })
 })
 
 

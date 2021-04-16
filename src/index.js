@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSelect = document.getElementById('years');
 
     yearSelect.addEventListener('change', (e) => {
-        Map.updateMap()
+        Map.updateMap(Map.getYear())
     });
 
     const infoButton = document.getElementsByClassName('info')[0];
-    //debugger
     infoButton.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementsByClassName('description')[0].classList.add('is-open');
@@ -32,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementsByClassName('screen is-open')[0].classList.remove('is-open');
         })
     }
+
+    document.addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            Map.handleSpace();
+        }
+    })
 })
 
 

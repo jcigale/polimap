@@ -4,7 +4,7 @@ let sortedByYear = byYear();
 let abrv = stateAbrv;
 let partyColor = parties;
 
-function getYear() {
+export function getYear() {
     let year = document.getElementById('years')
     if (!year || year.value === 'none') return
     return year.value;
@@ -17,6 +17,18 @@ function title() {
         return 'Select a Year'
     }
 }
+
+export function handleSpace() {
+    let year = parseInt(getYear());
+    while (year < 2020) {
+        setInterval(() => {
+            //debugger
+            updateMap(year);
+            year += 4
+        }, 2000)
+    }
+}
+
 function resetMap() {
     for (let i=0; i<states.length; i++) {
         let state = document.getElementsByClassName(abrv[states[i]]);
@@ -25,9 +37,9 @@ function resetMap() {
 }
 
 
-export function updateMap() {
+export function updateMap(getYear) {
     resetMap();
-    let year = getYear();
+    let year = getYear;
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);

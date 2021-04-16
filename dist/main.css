@@ -226,6 +226,13 @@ body {
     font-family: 'Karantina', cursive;
     font-size: 28px;
     text-align: center;
+    margin-top: 35px;
+    margin-bottom: 10px;
+}
+
+.description.is-open p {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 .screen {
@@ -246,7 +253,11 @@ body {
 .modal-close {
     background: transparent;
     border: none;
-    right: 0px;
+    float: right;
+}
+
+.modal-close:hover {
+    cursor: pointer;
 }
 
 .top-bar {
@@ -260,7 +271,7 @@ body {
     font-size: 40px;
     font-weight: 500;
     font-family: 'Karantina', cursive;
-    letter-spacing: 2px
+    letter-spacing: 2px;
 }
 
 .top-bar nav {
