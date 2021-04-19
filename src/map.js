@@ -26,7 +26,7 @@ export function handleSpace() {
         year = parseInt(getYear());
     }
         let go = setInterval(() => {
-            debugger
+            //debugger
             updateMap(year);
             if (year === 1789) {
                 year += 3
