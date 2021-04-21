@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _elec_obj_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elec_obj.js */ "./src/elec_obj.js");
 
 
-const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Dist. of Col.', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Dist. of Col.', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 const byYear = () => {
     let data = _elec_obj_js__WEBPACK_IMPORTED_MODULE_0__.elecResults
@@ -2465,20 +2465,13 @@ function handleSpace() {
         year = parseInt(getYear());
     }
         let go = setInterval(() => {
-            debugger
-            updateMap(year);
             if (year === 1789) {
                 year += 3
-            } else { year += 4}
+            } else if(year <= 2012) { year += 4}
+            updateMap(year);
         }, 2000)
 
-        document.addEventListener('keyup', event => {
-            if (event.code === 'Space') {
-                clearInterval(go)
-            }
-        })
-
-  
+        return go
 }
 
 function resetMap() {
@@ -2492,8 +2485,11 @@ function resetMap() {
 function updateMap(getYear) {
     resetMap();
     let year = getYear;
+    let val = document.getElementById('years')
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
+            //debugger
+            if (val) { val.value = year}
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
             state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
@@ -2585,7 +2581,7 @@ class Router {
   }
 
   render() {
-    //debugger
+    ////debugger
     this.node.innerHTML = "";
     let component = this.activeRoute();
     if(component) {
@@ -2685,6 +2681,8 @@ let routes = {
     map: Map,
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     let main = document.querySelector('.main');
     router = new Router(main, routes);
@@ -2713,9 +2711,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('keyup', event => {
+
         if (event.code === 'Space') {
             Map.handleSpace();
-        }
+            document.removeEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            Map.handleSpace();
+        }  
+        })
+
+        document.addEventListener('keyup', event => {
+            if (event.code === 'Space') {
+                clearInterval(Map.handleSpace())
+
+                document.addEventListener('keyup', event => {
+                    if (event.code === 'Space') {
+                        Map.handleSpace();
+                    }})
+            }
+        })
+        }  
     })
 })
 

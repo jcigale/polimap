@@ -5,6 +5,8 @@ let routes = {
     map: Map,
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     let main = document.querySelector('.main');
     router = new Router(main, routes);
@@ -33,9 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('keyup', event => {
+
         if (event.code === 'Space') {
             Map.handleSpace();
-        }
+            document.removeEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            Map.handleSpace();
+        }  
+        })
+
+        document.addEventListener('keyup', event => {
+            if (event.code === 'Space') {
+                clearInterval(Map.handleSpace())
+
+                document.addEventListener('keyup', event => {
+                    if (event.code === 'Space') {
+                        Map.handleSpace();
+                    }})
+            }
+        })
+        }  
     })
 })
 

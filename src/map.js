@@ -26,20 +26,13 @@ export function handleSpace() {
         year = parseInt(getYear());
     }
         let go = setInterval(() => {
-            //debugger
-            updateMap(year);
             if (year === 1789) {
                 year += 3
-            } else { year += 4}
+            } else if(year <= 2012) { year += 4}
+            updateMap(year);
         }, 2000)
 
-        document.addEventListener('keyup', event => {
-            if (event.code === 'Space') {
-                clearInterval(go)
-            }
-        })
-
-  
+        return go
 }
 
 function resetMap() {
@@ -53,8 +46,11 @@ function resetMap() {
 export function updateMap(getYear) {
     resetMap();
     let year = getYear;
+    let val = document.getElementById('years')
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
+            //debugger
+            if (val) { val.value = year}
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
             state[0].style.color = partyColor[sortedByYear[year][i].Party]
             }
