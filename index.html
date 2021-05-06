@@ -11,6 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Karantina&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8236c26cdc.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/ico" href="./dist/favicon.ico"/>
+    <script type='text/javascript'>
+      window.pause = "<%=image_url('pause.jpeg')%>"
+    </script>
+
+    <script type='text/javascript'>
+      window.play = "<%=image_url('play.png')%>"
+    </script>
 
   </head>
   <body>
@@ -93,7 +100,7 @@
         - Use drop down menu to select the year for which you would like to see presidential election results
       </p>
       <p>
-        - Press the space bar to transition forwards through the years
+        - Press the play button to transition forwards through the years and pause button to stop on said year
       </p>
     </div>
     <div class='screen'></div>
@@ -106,6 +113,10 @@
         <li><div class='fed'></div> <span>Federalist</span></li>
         <li><div class='other'></div> <span>Other</span></li>
       </ul>
+    </div>
+    <div class='controls'>
+        <img class='play' src='./dist/play.png'>
+        <img class='pause' src='./dist/pause.png'>
     </div>
   </body>
 </html>

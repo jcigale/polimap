@@ -34,29 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    document.addEventListener('keyup', event => {
+    const play = document.getElementsByClassName('play');
+    const pause = document.getElementsByClassName('pause');
 
-        if (event.code === 'Space') {
-            Map.handleSpace();
-            document.removeEventListener('keyup', event => {
-        if (event.code === 'Space') {
-            Map.handleSpace();
-        }  
-        })
-
-        document.addEventListener('keyup', event => {
-            if (event.code === 'Space') {
-                clearInterval(Map.handleSpace())
-
-                document.addEventListener('keyup', event => {
-                    if (event.code === 'Space') {
-                        Map.handleSpace();
-                    }})
-            }
-        })
-        }  
+    play.addEventListener('onclick', event => {
+            Map.handleSpace(); 
     })
+
+    pause.addEventListener('onclick', event => {
+            clearInterval(Map.handleSpace())
+    })
+
+
 })
-
-
-
