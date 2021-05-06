@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     play.addEventListener('click', (e) => {
         e.preventDefault();
-        Map.handleSpace(); 
+        Map.handlePlay(); 
     })
 })

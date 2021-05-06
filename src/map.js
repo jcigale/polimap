@@ -18,7 +18,7 @@ function title() {
     }
 }
 
-export function handleSpace() {
+export function handlePlay() {
     let year;
     const pause = document.getElementsByClassName('fas fa-pause')[0];
 
@@ -27,14 +27,15 @@ export function handleSpace() {
     } else {
         year = parseInt(getYear());
     }
-        let go = setInterval(() => {
-            if (year === 1789) {
-                year += 3
-            } else if(year <= 2012) { year += 4}
-            updateMap(year);
-        }, 2000)
+    
+    let go = setInterval(() => {
+        if (year === 1789) {
+            year += 3
+        } else if(year <= 2012) { year += 4}
+        updateMap(year);
+    }, 2000)
 
-        pause.addEventListener('click', (e) => {
+    pause.addEventListener('click', (e) => {
         e.preventDefault();    
         clearInterval(go)
     })
