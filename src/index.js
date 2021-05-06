@@ -34,15 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    const play = document.getElementsByClassName('play');
-    const pause = document.getElementsByClassName('pause');
+    const play = document.getElementsByClassName('play')[0];
+    const pause = document.getElementsByClassName('pause')[0];
 
-    play.addEventListener('onclick', event => {
-            Map.handleSpace(); 
+    play.addEventListener('click', (e) => {
+        e.preventDefault();
+        Map.handleSpace(); 
     })
 
-    pause.addEventListener('onclick', event => {
-            clearInterval(Map.handleSpace())
+    pause.addEventListener('click', (e) => {
+        e.preventDefault();    
+        clearInterval(Map.handleSpace())
     })
 
 
