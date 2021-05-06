@@ -49,7 +49,7 @@ export function updateMap(getYear) {
     let val = document.getElementById('years')
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
-            //debugger
+            ////debugger
             if (val) { val.value = year}
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
             state[0].style.color = partyColor[sortedByYear[year][i].Party]

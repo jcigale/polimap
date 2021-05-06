@@ -12,7 +12,7 @@ class Router {
   }
 
   render() {
-    ////debugger
+    //////debugger
     this.node.innerHTML = "";
     let component = this.activeRoute();
     if(component) {
