@@ -20,6 +20,8 @@ function title() {
 
 export function handleSpace() {
     let year;
+    const pause = document.getElementsByClassName('pause')[0];
+    
     if (getYear() === '1789' || getYear() === 'Select Year' || getYear() === undefined) {
         year = 1789
     } else {
@@ -32,7 +34,10 @@ export function handleSpace() {
             updateMap(year);
         }, 2000)
 
-        return go
+        pause.addEventListener('click', (e) => {
+        e.preventDefault();    
+        clearInterval(go)
+    })
 }
 
 function resetMap() {
@@ -49,7 +54,6 @@ export function updateMap(getYear) {
     let val = document.getElementById('years')
     if (year) {
         for (let i=0; i<sortedByYear[year].length; i++) {
-            ////debugger
             if (val) { val.value = year}
             let state = document.getElementsByClassName(abrv[sortedByYear[year][i].State]);
             state[0].style.color = partyColor[sortedByYear[year][i].Party]

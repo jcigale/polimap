@@ -41,11 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         Map.handleSpace(); 
     })
-
-    pause.addEventListener('click', (e) => {
-        e.preventDefault();    
-        clearInterval(Map.handleSpace())
-    })
-
-
 })
