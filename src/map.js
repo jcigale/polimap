@@ -20,8 +20,8 @@ function title() {
 
 export function handleSpace() {
     let year;
-    const pause = document.getElementsByClassName('pause')[0];
-    
+    const pause = document.getElementsByClassName('fas fa-pause')[0];
+
     if (getYear() === '1789' || getYear() === 'Select Year' || getYear() === undefined) {
         year = 1789
     } else {

@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    const play = document.getElementsByClassName('play')[0];
-    const pause = document.getElementsByClassName('pause')[0];
+    const play = document.getElementsByClassName('fas fa-play')[0];
 
     play.addEventListener('click', (e) => {
         e.preventDefault();
